@@ -2,6 +2,8 @@ import os
 
 nome=input('nome do arquivo: ')
 
+
+#teste pica das galaxia receba
 if os.path.exists(nome):
 
     with open(nome,'r') as arquivo:
