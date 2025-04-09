@@ -1,9 +1,8 @@
 import os 
 
-nome=input('nome do arquivo\n')
+nome=input('nome do arquivo: ')
 
 if os.path.exists(nome):
-    print("sim")
 
     with open(nome,'r') as arquivo:
         dados = ''
@@ -16,8 +15,20 @@ if os.path.exists(nome):
 
         caracteres = len(dados)
         palavras = len(dados.split())
-        print(caracteres,palavras)
+        print(f"\nquantiadde de caracteres: {caracteres} \nquantidade de palavras : {palavras}\n")
         #numero de ocorrencias
+        contagem = {}
+        lista_palavras= dados.split()
+        quantidade_palavras =len(lista_palavras)
 
+        for palavra in lista_palavras:
+            if palavras in contagem:
+                contagem[palavra] += 1
+            else:
+                contagem[palavra] = 1
+        
+        print("repetições de palavras:")
+        for palavra, quantidade in contagem.items():
+            print(f'{palavra}: {quantidade}')
 else:
-    print("nao")    
+    print("O arquivo não existe.")    
